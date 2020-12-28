@@ -27,3 +27,37 @@
   font-size: 14px;
   padding: 15px;
 }
+
+.modal__form {
+  width: 60%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__form input {
+  padding: 10px;
+}
+
+.submit__button {
+  display: flex;
+  background-color: orange;
+  width: 110px;
+  height: 35px;
+  border-radius: 4px;
+  /* padding: 2px 2px 2px 0px; */
+  margin-top: 15px;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+
+.modal__content * {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
