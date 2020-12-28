@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from './Modal';
 import './Card.css';
 
-function Card({country, image, accomodation }) {
+function Card({country, image, accomodations}) {
     
     const [modalOpen, setModalOpen ] = useState(false);
 
@@ -20,7 +20,7 @@ function Card({country, image, accomodation }) {
                 <img src={image} alt="destination"/>
                 <div className="card__description">
                     <h1>{country}</h1>
-                    <p>{accomodation} accomodations</p>
+                    <p>{accomodations} accomodations</p>
                     <div className="card__button" onClick={onClick}>
                         <h1> Book now </h1>
                     </div>

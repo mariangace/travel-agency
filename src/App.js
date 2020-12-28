@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Header";
 import Card from "./Card";
 
+import { db } from "./firebase.js";
+
 function App() {
+  const [cards, setCards] = useState([]);
+
+  useEffect(()=> {
+    db.collection("cards").onSnapshot((snapshot) => {
+      let tempCards = [];
+      snapshot.docs.map((doc) => 
+        tempCards.push({
+          id: doc.id,
+          image: doc.data().image,
+          country: doc.data().country,
+          city: doc.data().city,
+          accomodations: doc.data().accomodations,        
+        })
+      )
+      setCards(tempCards);
+    })
+  },[]);
+  
   return (
     <div className="app">
       <div className="app__header">
@@ -10,8 +31,15 @@ function App() {
       </div>
       <div className="app__body">
         <div className="app__container">
-          <Card accomodation={100} country="Nepal" image="https://images.unsplash.com/photo-1529733905113-027ed85d7e33?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"/> 
-          <Card accomodation={200} country="Italy" image="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1998&q=80”"/> 
+          {cards.map((card, index) => (
+              <Card 
+                key ={index}
+                image={card.image}
+                country={card.country}
+                // city={card.city}
+                accomodations={card.accomodations}
+              />
+            ))}
         </div>
       </div>
     </div>
