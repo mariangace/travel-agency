@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Travel agency project
 
-Welcome! This is a simple project to test firebase conection config for ReactJs
+Welcome! This is a simple project to test firebase connection config for ReactJs
 
 ![alt pinterest-clone](https://github.com/mariangace/travel-agency/blob/main/public/travelagency.png?raw=true)
 
